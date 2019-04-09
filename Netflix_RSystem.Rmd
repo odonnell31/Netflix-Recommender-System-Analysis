@@ -1,0 +1,94 @@
+---
+title: "Netflix Recommender System"
+author: "ODONNELL"
+date: "April 8, 2019"
+output: html_document
+---
+
+### sources
+
+1. How Netflix Recommender System Works - Netflix
+https://help.netflix.com/en/node/100639
+
+2. Netflix Recommedation Engine - Codecademy
+https://www.codecademy.com/articles/how-netflix-recommendation-works-data-science
+
+3. Building the Next New York Times Recommendation Engine - NY Times
+https://open.blogs.nytimes.com/2015/08/11/building-the-next-new-york-times-recommendation-engine/
+
+4. Amazon.com Recommendations - Industry Report
+Amazon-Recommendations Item to Item Collaborative Filtering .pdf
+
+5. Classifying Recommeder Systems - Blue Pi
+https://www.bluepiit.com/blog/classifying-recommender-systems/
+
+
+### Question 1
+
+Perform a Scenario Design analysis as described below.  Consider whether it makes sense for your selected recommender system to perform scenario design twice, once for the organization (e.g. Amazon.com) and once for the organization's customers.
+
+
+Netflix should perform scenario design only once, for their customers (subsribers). So, for the Scenario Design:
+
+
+Q: Who are Netflix' target users?
+
+The Netflix subscribers, and each person with a profile on their account.
+
+Q: What are the Netflix subscribers' key goals?
+
+To find Movies and Shows (titles) that interest them.
+
+Q: How can Netflix help their subscribers accomplish those goals?
+
+By creating a robust Recommender System that guides the subscribers towards programs that interest them. Netflix has far too many programs for users to scroll through aimlessly, so a recommender system is a necessity for the product. Furthermore, Netflix Recommender System should recommend titles both similar to a users' viewing history and different that they will still likely enjoy (exploratory).
+
+### Question 2
+
+Q: Attempt to reverse engineer what you can about the site, from the site interface and any available information that you can find on the Internet or elsewhere.
+
+
+There are a few basic principles showcased on the sites interface. First, the recommeder system both generally and specifically recommends the user programs. For example, the general recommendations are titled "Based on the shows you've watched." and the specific recommendations are titled "Because you watched show x.." And, the general and specific recommendation buckets are not always listed in the same order. So, my best guess is the general recommendations consider everything from that user's viewing history. Conversely, the recommendations based on a single title or genre must consider viewing history of similar users.
+
+To delve further, I read the definitions of various recommender systems to guess which Netflix are using:
+
+source: https://www.bluepiit.com/blog/classifying-recommender-systems/
+
+After reading the definitions of different types of recommender systems, I think Netflix uses a Hybrid System that combines both a Collaborative Recommender System and a Content-based Recommender System:
+
+Collaborative Recommender System: recommends content to an individual user based on aggregations of similar users. So, if a group of Netflix subscribers that watched many of the same titles you have has also watched 'Stranger Things', Netflix will recommend 'Stranger Things' to you.
+
+Content-based Recommender System: recommends content to a user based on features. So, if you watch many titles that are have both features 'sci-fi' and 'aliens', Netflix will recommend other titles with those features.
+
+Now, I think Netflix uses a Hybrid Recommender System from the two systems defined above. A hybrid system is intuitive for Netflix because a Collaborative System and Content-based System will produce different recommendations to a user, which are both valuable. A Content-based recommendation will be similar to previously viewed titles. But, the Collaborative recommendations will be new and different than previously viewed titles. Thus, a hybrid of these recommendations will provide a Netflix user both depth and breadth in recommendations.
+
+
+Finally after much speculation, I gained more insight after reading an article Netflix released about their recommender system (https://help.netflix.com/en/node/100639):
+
+The Netflix recommender system uses six pieces of information (basically..):
+Your viewing history
+Viewing history of similar users
+Genre/category of program
+Time of day
+Device you're watching on
+Duration of each of your viewing sessions
+ 
+Thus, Netflix does seem to use a Hybrid Recommender System like I had guessed! But, their system may use many more types of systems as well.
+
+To answer a specific question I had, "What does Netflix recommend to new users?"
+
+Netflix "Jump Starts" its recommender system for new accounts. That means Netflix asks new users for a few titles they like and bases its recommender system on those limited data points. But, the new user's viewing history will supersede the jump start points. Moreover, Netflix Recommender system most weighs recent viewing history more than all-time viewing history.
+
+And lastly, one really neat fact about Netflix recommeder system!:
+
+80% of titles watched on Netflix are found through the Netflix recommender system! Thus, the recommender system is a huge part of the Netflix product.
+ 
+### Question 3
+
+Include specific recommendations about how to improve the site's recommendation capabilities going forward.
+
+I think Netflix could improve their recommender system with more features for their content-based recommeder system. For starters:
+- Age of Viewer
+- location of viewing
+- Time of day, is the sun still in the sky? (Based on location as well)
+- Season of year
